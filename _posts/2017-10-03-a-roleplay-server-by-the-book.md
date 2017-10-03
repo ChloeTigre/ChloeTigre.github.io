@@ -1,3 +1,6 @@
+---
+title: A Role-playing Server, by the book
+---
 I have recently started a project quite special for me since I'll try to "stick to the methods".
 
 I had a chat with a Perl expert whom I happen to have gotten acquainted with and he told me stories about some C development companies that billed huge amounts for their development time because their code was written after it was entirely thought, architectured, conceived, well, specified from A to Z. I was like 🤔*wow😮* because it's something absolutely unheard of in most software development stories. Honestly you never meet product owners, project managers, software architects patient enough to do it.
