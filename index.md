@@ -11,6 +11,5 @@ One day I may even decide to dig old contents and share it here.
 # Blog posts
 
 {% for post in site.posts %}
--- Render the post layout for this post.
-<a href="{{ post.url }}">{{ post.title }}</a>
+[{{ post.title }}]({{ post.url }})
 {% endfor %}
