@@ -1,9 +1,6 @@
 ---
-title: 🐯🐯🐯 Chloé Tigre Rouge 🐯🐯🐯
+title: README
 ---
-# Chloé Tigre Rouge's Site
-Just a personal site where I'll write about software, system admnistration and automation, when I have the occasion or something to share.
+If you made it to here it means you were curious enough to look at a Git repository, or you are lucky.
 
-I'll try to post recipes, random thoughts and stuff like this aswell.
-
-One day I may even decide to dig old contents and share it here.
+This website is made using Jekyll, a solution for static sites that's tightly integrated with GitHub. It frees developers from the hassle of maintaining full stacks and servers for a website when this isn't their primary interest.
