@@ -3,7 +3,7 @@ title: A Role-playing Server, by the book
 ---
 I have recently started a project quite special for me since I'll try to "stick to the methods".
 
-I had a chat with a Perl expert whom I happen to have gotten acquainted with and he told me stories about some C development companies that billed huge amounts for their development time because their code was written after it was entirely thought, architectured, conceived, well, specified from A to Z. I was like 🤔*wow😮* because it's something absolutely unheard of in most software development stories. Honestly you never meet product owners, project managers, software architects patient enough to do it.
+I had a chat with a Perl expert whom I happen to have gotten acquainted with and he told me stories about some C development companies that billed huge amounts for their development time because their code was written after it was entirely thought, architectured, conceived, well, specified from A to Z. I was like 🤔wow😮 because it's something absolutely unheard of in most software development stories. Honestly you never meet product owners, project managers, software architects patient enough to do it.
 
 Then I gave it another thought, and talked with a friend about it. She told me that this was not feasible in a reasonable fashion by a single developer on a project, but that roles had to alternate and this method had to be applied to small modules. The initial conception phase outlines the components, and then one after the other, their API are specified, the innards that make these API work are specified, their side effects are specified, and they are validated, tested, implemented, validated and tested again (in that order).
 
