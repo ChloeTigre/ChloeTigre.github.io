@@ -7,3 +7,10 @@ Just a personal site where I'll write about software, system admnistration and a
 I'll try to post recipes, random thoughts and stuff like this aswell.
 
 One day I may even decide to dig old contents and share it here.
+
+# Blog posts
+
+{% for post in site.posts %}
+-- Render the post layout for this post.
+<a href="{{ post.url }}">{{ post.title }}</a>
+{% endfor %}
