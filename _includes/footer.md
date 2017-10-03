@@ -1,4 +1,1 @@
----
-# empty front matter
----
-* [/cv/en](CV (English Version))
+* [CV (english version)](/cv/en)
