@@ -1,5 +1,5 @@
 ---
-theme: jekyll-theme-hacker
+layout: full-width.html
 title: Chloé "Tigre Rouge" Desoutter - CV
 ---
 # Personal Info
