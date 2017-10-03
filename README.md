@@ -1,3 +1,6 @@
+---
+title: 🐯🐯🐯 Chloé Tigre Rouge 🐯🐯🐯
+---
 # Chloé Tigre Rouge's Site
 Just a personal site where I'll write about software, system admnistration and automation, when I have the occasion or something to share.
 
