@@ -11,6 +11,12 @@ IT nerd infused with Open Source culture since high school. Committed to deliver
 Debian user since 2003. Open source contributor. French and Python as mother tongues. English as business language. Love for standards and reluctance to being standard. DevOps before it was cool.
 
 ## Professional & para-professional experience
+
+### Owner, Tigres Rouges Consulting
+
+2017 -- *
+I decided to transform my small, individual freelancer company into a full-fledged company and to make it my permanent activity. From this time forward, all my activities are carried by this system.
+
 ### Information Systems and R&D officer, NBS System
 2015 -- 2017
 Software architecture, data management, technology intelligence, devops, cloud computing
