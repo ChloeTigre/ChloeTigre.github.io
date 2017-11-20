@@ -15,7 +15,7 @@ Debian user since 2003. Open source contributor. French and Python as mother ton
 ### Owner, Tigres Rouges Consulting
 
 2017 -- *
-I decided to transform my small, individual freelancer company into a full-fledged company and to make it my permanent activity. From this time forward, all my activities are carried by this system.
+I decided to transform my small, individual freelance company into a full-fledged company and to make it my permanent activity. From this time forward, all my activities are carried by this system.
 
 ### Information Systems and R&D officer, NBS System
 2015 -- 2017
@@ -23,11 +23,11 @@ Software architecture, data management, technology intelligence, devops, cloud c
 
 ### Freelancer in Web technologies & RDBMS consulting, Tigres Rouges Consulting
 2015
-Web frameworks, database optimization, e-commerce migrations, general IT operations, etc. continuing the previous freelance activity
+Web frameworks, database optimization, e-commerce migrations, general IT operations, etc. continuing the previous freelance activity.
 
 ### Research & Development Operative, CTO, Atasta SAS then Atasta Net SAS, Paris, France
 2012 -- 2015
-Team management, business & IT skills, production manager, technical lead
+Production manager, technical lead
 
 ### Editorialist, Txy.fr (leading french transgender media)
 2012 -- 2014
@@ -60,7 +60,7 @@ Other languages:
 GNU/Linux (Ubuntu, Debian, Gentoo), FreeBSD, Windows (basic system administration), automation, packaging
 
 ### Cloud & Virtualization
-Xen, AWS, CoreOS, Docker
+Xen, AWS, CoreOS, Docker, VMWare vSphere
 
 ### Programming languages
 Python, Golang, PHP, PL/pgSQL, Javascript, Bash & POSIX shell
