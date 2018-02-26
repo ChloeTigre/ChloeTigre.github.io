@@ -45,6 +45,17 @@ IT & sales skills, reporting, system administration.
 2009.
 customers relationship, IT skills, reporting, system administration.
 
+## Missions with Tigres-Rouges Consulting
+
+### Diabolocom (Levallois-Perret, France)
+Team of 5. Advise on Docker and Docker-Compose best practice. Troubleshoot previously unmaintained Perl scripts. Help industrialize IT operations w/ Ansible. Advise developers on proper architecture choices.
+
+### Conservatoire à Rayonnement Régional de Lyon (France)
+Solo job. System administration, organize migration from Samba 3 with AD emulation and a custom-built storage solution to Samba 4 in a Synology environment. Various maintainance of a legacy infrastructure. Migration to a best-fit architecture.
+
+### Believe Digital (Paris, France)
+Part of a growing team. System administration with high expertise. Help with datacenter migration. Setup of highly available architectures. Architectural consulting with in-house architects. Database administration and troubleshooting of production issues. Duty.
+
 ## Languages
 Mother tongue: French
 Other languages:
