@@ -54,7 +54,8 @@ Team of 5. Advise on Docker and Docker-Compose best practice. Troubleshoot previ
 Solo job. System administration, organize migration from Samba 3 with AD emulation and a custom-built storage solution to Samba 4 in a Synology environment. Various maintainance of a legacy infrastructure. Migration to a best-fit architecture.
 
 ### Believe Digital (Paris, France)
-Part of a growing team. System administration with high expertise. Help with datacenter migration. Setup of highly available architectures. Architectural consulting with in-house architects. Database administration and troubleshooting of production issues. Duty.
+Part of a growing team. System administration with high expertise. Help with datacenter migration. Setup of highly available architectures. Architectural consulting with in-house architects. Database administration and troubleshooting of production issues. Duty. Documentation. Transmission of Ansible best practices.
+
 
 ## Languages
 Mother tongue: French
