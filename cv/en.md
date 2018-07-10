@@ -90,10 +90,11 @@ PostgreSQL (9.x+), MySQL (MySQL-Cluster), MariaDB, Galera Cluster, Amazon RDS
 Flask, XHTML, CSS3, jQuery, Bootstrap, WordPress
 
 ### Services
-Apache HTTPD, Nginx, LDAP, Postfix, opensmtpd, high availability
+Apache HTTPD, HAProxy, Nginx, LDAP, Postfix, opensmtpd, all high-availability and high-performance clustering
 
 ### Networking
-OSI Model, IPv6, pf firewall, iptables/netfilter, OpenVPN, Tinc
+Firewalling with ferm, pf, iptables/netfilter
+VPN systems with OpenVPN, Tinc, ipsec, pfSense, opnsense
 
 ### Packaging
 Open Build Service, Docker
@@ -132,9 +133,15 @@ Sound editing, cleaning, broadcast standards
 ## Non-IT interests
 ### Humanities
 Philosophy (ethics), sociology.
+
 ## Literature
-Sci-Fi (Philip K. Dick, Cordwainer Smith, Ray Bradbury…). Writer of essays.
+Sci-Fi (Philip K. Dick, Cordwainer Smith, Ray Bradbury…). Fantasy (Terry Pratchett, J.R.R. Tolkien…). Writer of essays.
+
 ## Social networks
-Facebook to keep up with friends. Involved in Twitter activism.
+FB, Twitter, LinkedIn, …
+
 ## Music
 Song writer. Lover of jazz, blues and klezmer music.
+
+## Video Games
+Retrogaming, restoration, speedrunning.
