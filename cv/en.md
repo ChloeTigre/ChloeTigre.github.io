@@ -4,13 +4,18 @@ title: Chloé "Tigre Rouge" Desoutter - CV
 ---
 ## Personal Info
 
-Chloé Desoutter - jobs@tigres-rouges.net
+Chloé Desoutter - chloe+jobs@tigres-rouges.net
 
 ## Introduction
 IT nerd infused with Open Source culture since high school. Committed to delivering the best service to internal & external customers. Not consensual with professional and personal ethics. Providing answers to various business challenges since 2008.
 Debian user since 2003. Open source contributor. French and Python as mother tongues. English as business language. Love for standards and reluctance to being standard. DevOps before it was cool.
 
 ## Professional & para-professional experience
+
+### Systems and Network Administrator, DevOps, B.D. (Paris, France)
+
+2017 -- present
+As an experienced DevOps in a team of 4, we build together a better, more modern infrastructure for petabyte-scale data management and processing. We face numerous technical and security challenges to deliver the best, most reliable service to our team of 50 developers and their ever-growing number of customers.
 
 ### Owner, Tigres Rouges Consulting
 
