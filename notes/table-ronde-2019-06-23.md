@@ -28,6 +28,11 @@ On conserve du mieux qu'on peut les medias originaux (bandes analogiques ou num�
 Classer -> là-dessus on est plutôt faibles. on sait ce qui est présent dans nos bandes surtout "parce qu'on le sait". On n'a pas encore de catalogue établi parce qu'en vidéo cela prend beaucoup d'énergie
 Communiquer -> la question est "vers qui ?". On collabore essentiellement avec des associations. Pour ouvrir à d'autres tels que des universitaires, on est tièdes si on n'a pas de garanties que ce ne sera pas utilisé par des adversaires, opposants, qui utiliseraient nos images et nos événements contre nous.
 
+### Quel type d'archives ?
+
+Documents vidéo essentiellement, essentiellement bande magnétique et fichiers. Manifestations, festivals...
+C'est conservé chez nous, dans des boites à chaussures, à documents et sur des disques durs. On aimerait faire un dépot de fichiers dans le cloud pour se prémunir contre les catastrophes mais 1/ cout economique 2/ difficulté technique pour les bandes.
+
 ## Relation aux institutions
 
 On veut une archive vivante et on rejette les éventuels embargos qui se poseraient si on déposait nos fonds dans une archive officielle. De plus, on est propriétaires de nos images et on en conserve le droit d'auteur et droit moral. On rejette le fait de les céder à une institution qui en aurait les droits exclusifs d'usage et en ferait probablement un non-usage ou un usage au service par exemple du pinkwashing.
