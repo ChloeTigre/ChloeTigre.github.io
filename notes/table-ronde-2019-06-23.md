@@ -10,7 +10,7 @@ C'est beaucoup de travail de faire des tournages et du montage et de l'archivage
 
 De fait pour faciliter la reconnaissance et aussi pouvoir mettre en oeuvre des moyens plus importants et mutualisés et mieux aider/mieux servir/mieux transmettre, on a monté Medusa d'abord en tant que groupe informel en 2015 puis enregistrée en tant qu'asso à l'été 2016, avec pour objet:
 
-    produire, diffuser, archiver des documents audiovisuels pour la communauté Lgbtqi, les travailleuses du sexe et les féministes inclusives ; former la communauté Lgbtqi, les travailleuses du sexe et les féministes inclusives aux médias audiovisuels
+> produire, diffuser, archiver des documents audiovisuels pour la communauté Lgbtqi, les travailleuses du sexe et les féministes inclusives ; former la communauté Lgbtqi, les travailleuses du sexe et les féministes inclusives aux médias audiovisuels
 
 
 ## URGENCES ACTUELLES
