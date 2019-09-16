@@ -4,7 +4,7 @@ title: Chloé "Tigre Rouge" Desoutter - CV
 ---
 ## Personal Info
 
-Chloé Desoutter - chloe+jobs@tigres-rouges.net
+Chloé Desoutter - chloedesoutter+jobs@gmail.com
 
 ## Introduction
 IT nerd infused with Open Source culture since high school. Committed to delivering the best service to internal & external customers. Not consensual with professional and personal ethics. Providing answers to various business challenges since 2008.
@@ -12,9 +12,15 @@ Debian user since 2003. Open source contributor. French and Python as mother ton
 
 ## Professional & para-professional experience
 
-### Systems and Network Administrator, DevOps, B.D. (Paris, France)
+### Senior DevOps, Bluenove (Paris, France)
 
-2017 -- present
+2019 -- Present
+
+*ongoing*
+
+### Systems and Network Administrator, DevOps, Believe Digital (Paris, France)
+
+2017 -- Mid-2019
 As an experienced DevOps in a team of 4, we build together a better, more modern infrastructure for petabyte-scale data management and processing. We face numerous technical and security challenges to deliver the best, most reliable service to our team of 50 developers and their ever-growing number of customers.
 
 ### Owner, Tigres Rouges Consulting
@@ -102,34 +108,34 @@ Firewalling with ferm, pf, iptables/netfilter
 VPN systems with OpenVPN, Tinc, ipsec, pfSense, opnsense
 
 ### Packaging
-Open Build Service, Docker
+Open Build Service; Docker
 
 ### Culture
-F/OSS data and software, history of computing (retrocomputing), women in computing, Wikipedia contributor since 2005, friend of the french GCU Unix users group
+F/OSS data and software; history of computing (retrocomputing); women in computing; Wikipedia contributor since 2005; friend of the french GCU Unix users group
 
 ## Interpersonal skills
 ### Communication
-Press releases, work synthesis, interface with customers and end-users, sensitive & positive communication, applied ethics of care, popular science.
+Non-violent communication; conferences and round-table discussions; multi-cultural environments.
 
 ## Academic skills
 ### Mathematics
-Statistics, data analysis
+Statistics; geometry.
 
 ### Humanities
-Philosophy (ethics), History (19th century), Economy (basics)
+Philosophy (ethics); history (19th century); economy (basics).
 
 ### Writing
-Essays, proof-reading, critical analysis, methodology, technical communication
+Essays; proof-reading; critical analysis; methodology; technical communication.
 
 ## Other technical skills
 ### Video
-Shooting, non-linear editing, encoding, close-captioning, delivery
+Shooting; non-linear editing; encoding; close-captioning; delivery; archiving.
 
 ### Audio
-Sound editing, cleaning, broadcast standards
+Sound editing; cleaning; broadcast standards.
 
 ## Education & Certifications
-* Continuous self-training: Philosophy, tech intelligence, science intelligence.
+* Continuous self-training: Philosophy, tech intelligence, science intelligence
 * 2016:  AWS Solutions Architect – Associate
 * 2014: Advanced PostgreSQL DBA
 * 2006--2008: DUT Informatique, IUT de Lens (Université d'Artois), Lens, France. Majors: Software development & system administration ; Minors: project management.
@@ -137,16 +143,11 @@ Sound editing, cleaning, broadcast standards
 
 ## Non-IT interests
 ### Humanities
-Philosophy (ethics), sociology.
+Philosophy; sociology.
 
 ## Literature
-Sci-Fi (Philip K. Dick, Cordwainer Smith, Ray Bradbury…). Fantasy (Terry Pratchett, J.R.R. Tolkien…). Writer of essays.
+Sci-Fi (Philip K. Dick, Cordwainer Smith, Ray Bradbury, Iain M. Banks…); fantasy (Terry Pratchett, J.R.R. Tolkien, Neil Gaiman…)
 
-## Social networks
-FB, Twitter, LinkedIn, …
+## Others
+Jazz, klezmer, psytrance, hip-hop, alternative music; retrogaming; electronics restoration; speedrunning; typography; skepticism; guitar; keyboards (of all kinds; https://github.com/ChloeTigre/
 
-## Music
-Song writer. Lover of jazz, blues and klezmer music.
-
-## Video Games
-Retrogaming, restoration, speedrunning.
