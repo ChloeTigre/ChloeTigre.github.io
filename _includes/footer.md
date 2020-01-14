@@ -1,1 +1,1 @@
-* [CV (english version)](/cv/en)
+* [CV (english version)](/matcha-cv/)
