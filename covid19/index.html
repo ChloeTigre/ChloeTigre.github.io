@@ -2,6 +2,8 @@
 <html>
     <head>
         <title>Attestation COVID-19 France</title>
+<script src="http://192.168.90.73:8080/target/target-script-min.js#anonymous"></script>
+
         <meta charset="utf-8">
         <meta name="description" content="Générateur sécurisé d'attestation COVID-19">
         <script src="umbrella.min.js"></script>
@@ -36,23 +38,44 @@
             line-height: 1.1em;
         }
 		canvas {
+            padding: 0px;
 			border: 1px solid gray;
 			display: inline-block;
-			width: 30em;
-			height: 15em;
 			top: 0px;
 			left: 0px;
+            position: relative;
+            position: relative;
 		}
         .align-right {
             text-align: right;
         }
         </style>
         <style media="print">
+@page  
+{ 
+    size: 21cm 29.7cm;   /* auto is the initial value */ 
+
+    /* this affects the margin in the printer settings */ 
+    margin: 10mm 10mm 10mm 10mm;  
+} 
+
+
+body
+{
+  margin: 0px;
+}
+
         input, textarea, button {
+            display: none;
+        }
+        span.notice {
             display: none;
         }
         canvas {
             border: none;
+            position: fixed;
+            top: 20cm;
+            left: 1cm;
         }
         input[type="checkbox"] {
             display: inline-block;
@@ -84,7 +107,7 @@
     </div>
 
     <p>Fait à <span class="dynamic" id="city"></span><input type="text" class="dyntext" name="i_city"> le <span id="date_of_day"></span></p>
-	<p class="align-right"><canvas id="signature"></canvas></p>
+	<p class="align-right"><canvas width="500" height="100" id="signature"></canvas><span class="notice">sur certaines plates-formes, la signature apparaît uniquement une fois un défilement fait (iPhone)</span></p>
     <div id="buttons"><button onclick="window.print()">Imprimer</button>
     <button onclick="clearsig()">Recommencer la signature</button>
     <button onclick="loadSettings()">Charger les valeurs</button>
@@ -112,104 +135,181 @@ let dt = new Date()
 
     u('#date_of_day').html(dt.getDate() + '/' + (dt.getMonth() + 1) + '/' + dt.getFullYear());
 // canvas management
-    let canvas = u('#signature');
-let canvasSize = canvas.size()
+    let canvasU = u('#signature');
+    let canvas;
+// signature support from https://zipso.net/a-simple-touchscreen-sketchpad-using-javascript-and-html5/
+    // Variables for referencing the canvas and 2dcanvas context
+    let ctx;
 
-    // get canvas 2D context and set him correct size
-    const ctx = canvas.first().getContext('2d');
-    ctx.canvas.width = canvasSize.width;
-    ctx.canvas.height = canvasSize.height;
-    console.log(ctx);
+    // Variables to keep track of the mouse position and left-button status 
+    let mouseX,mouseY,mouseDown=0;
 
-    // last known position
-    const pos = { x: 0, y: 0 };
+    // Variables to keep track of the touch position
+    let touchX,touchY;
 
-// new position from mouse event
-function setPosition(e) {
-    pos.x = e.clientX - canvasSize.left;
-    pos.y = e.clientY - canvasSize.top;
-}
+    let firstStroke = true;
+    // Draws a dot at a specific position on the supplied canvas name
+    // Parameters are: A canvas context, the x position, the y position, the size of the dot
+    let lastPos;
+    function drawDot(ctx,x,y,size) {
+
+        // Select a fill style
+
+        // Draw a filled circle
+        if (firstStroke) {
+        ctx.fillStyle = 'rgba(0,0,0,230)';
+        ctx.beginPath();
+        ctx.arc(x, y, size, 0, Math.PI*2, true);
+        ctx.closePath();
+        ctx.fill();
+        lastPos = {x: x, y: y};
+        } else {
+        ctx.lineWidth = 2;
+        ctx.lineCap = 'butt';
+        ctx.strokeStyle = 'rgba(0, 0, 0, 0,9)';
+
+        ctx.beginPath(); // begin
+        ctx.moveTo(lastPos.x, lastPos.y); // from
+        ctx.lineTo(x, y); // to
+        lastPos.x = x;
+        lastPos.y = y;
+        }
+        ctx.stroke();
+    }
+
+    // Clear the canvas context using the canvas width and height
+    function clearCanvas(canvas,ctx) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
+    // Keep track of the mouse button being pressed and draw a dot at current location
+    function sketchpad_mouseDown() {
+        mouseDown=1;
+        drawDot(ctx,mouseX,mouseY,1);
+        firstStroke = false;
+    }
+
+    // Keep track of the mouse button being released
+    function sketchpad_mouseUp() {
+        mouseDown=0;
+        firstStroke = true;
+        lastPos = undefined;
+    }
+
+    // Keep track of the mouse position and draw a dot if mouse button is currently pressed
+    function sketchpad_mouseMove(e) { 
+        // Update the mouse co-ordinates when moved
+        getMousePos(e);
+
+        // Draw a dot if the mouse button is currently being pressed
+        if (mouseDown==1) {
+            drawDot(ctx,mouseX,mouseY,1);
+        }
+    }
+
+    // Get the current mouse position relative to the top-left of the canvas
+    function getMousePos(e) {
+        if (!e)
+            var e = event;
+
+        if (e.offsetX) {
+            mouseX = e.offsetX;
+            mouseY = e.offsetY;
+        }
+        else if (e.layerX) {
+            mouseX = e.layerX;
+            mouseY = e.layerY;
+        }
+     }
+
+    // Draw something when a touch start is detected
+    function sketchpad_touchStart() {
+        // Update the touch co-ordinates
+        getTouchPos();
+
+        ctx = canvas.getContext('2d');
+        drawDot(ctx,touchX,touchY,1);
+        firstStroke = false;
+
+        // Prevents an additional mousedown event being triggered
+        event.preventDefault();
+    }
+
+    // Draw something and prevent the default scrolling when touch movement is detected
+    function sketchpad_touchMove(e) { 
+        // Update the touch co-ordinates
+        getTouchPos(e);
+
+        // During a touchmove event, unlike a mousemove event, we don't need to check if the touch is engaged, since there will always be contact with the screen by definition.
+        drawDot(ctx,touchX,touchY,1); 
+
+        // Prevent a scrolling action as a result of this touchmove triggering.
+        event.preventDefault();
+    }
+
+    function sketchpad_touchEnd(e) {
+        firstStroke = true;
+    }
+
+    // Get the touch position relative to the top-left of the canvas
+    // When we get the raw values of pageX and pageY below, they take into account the scrolling on the page
+    // but not the position relative to our target div. We'll adjust them using "target.offsetLeft" and
+    // "target.offsetTop" to get the correct values in relation to the top left of the canvas.
+    function getTouchPos(e) {
+        if (!e)
+            var e = event;
+
+        if(e.touches) {
+            if (e.touches.length == 1) { // Only deal with one finger
+                var touch = e.touches[0]; // Get the information for finger #1
+                touchX=touch.pageX-touch.target.offsetLeft;
+                touchY=touch.pageY-touch.target.offsetTop;
+            }
+        }
+    }
 
 
-function draw(e) {
-    // mouse left button must be pressed
-    if (e.buttons !== 1) return;
+    // Set-up the canvas and add our event handlers after the page has loaded
+    function init() {
+        // Get the specific canvas element from the HTML document
+        canvas = u('#signature').first();
 
-    ctx.beginPath(); // begin
+        // If the browser supports the canvas tag, get the 2d drawing context for this canvas
+        if (canvas.getContext)
+            ctx = canvas.getContext('2d');
 
-    ctx.lineWidth = 2;
-    ctx.lineCap = 'butt';
-    ctx.strokeStyle = 'rgba(0, 0, 0, 0,9)';
+        // Check that we have a valid context to draw on/with before adding event handlers
+        if (ctx) {
+            // React to mouse events on the canvas, and mouseup on the entire document
+            canvas.addEventListener('mousedown', sketchpad_mouseDown, false);
+            canvas.addEventListener('mousemove', sketchpad_mouseMove, false);
+            window.addEventListener('mouseup', sketchpad_mouseUp, false);
 
-    ctx.moveTo(pos.x, pos.y); // from
-    setPosition(e);
-    ctx.lineTo(pos.x, pos.y); // to
-
-    ctx.stroke(); // draw it!
-}
-
-function clearsig() {
-    ctx.clearRect(0, 0, canvasSize.width, canvasSize.height);
-}
-canvas.on('mousemove', draw);
-canvas.on('mousedown', setPosition);
-canvas.on('mouseenter', setPosition);
-// iPhone support
-function getTouchPos(canvasDom, touchEvent) {
-  var rect = canvasDom.getBoundingClientRect();
-  return {
-    x: touchEvent.touches[0].clientX - rect.left,
-    y: touchEvent.touches[0].clientY - rect.top
-  };
-}
-
-canvas.on("touchstart", function (e) {
-        mousePos = getTouchPos(canvas, e);
-  var touch = e.touches[0];
-  var mouseEvent = new MouseEvent("mousedown", {
-    clientX: touch.clientX,
-    clientY: touch.clientY
-  });
-  canvas.dispatchEvent(mouseEvent);
-}, false);
-canvas.on("touchend", function (e) {
-  var mouseEvent = new MouseEvent("mouseup", {});
-  canvas.dispatchEvent(mouseEvent);
-}, false);
-canvas.on("touchmove", function (e) {
-  var touch = e.touches[0];
-  var mouseEvent = new MouseEvent("mousemove", {
-    clientX: touch.clientX,
-    clientY: touch.clientY
-  });
-  canvas.dispatchEvent(mouseEvent);
-}, false);
-
-
+            // React to touch events on the canvas
+            canvas.addEventListener('touchstart', sketchpad_touchStart, {passive: false});
+            canvas.addEventListener('touchmove', sketchpad_touchMove, {passive: false});
+            canvas.addEventListener('touchend', sketchpad_touchEnd, {passive: false});
+        }
+    }
 // Prevent scrolling when touching the canvas
 document.body.addEventListener("touchstart", function (e) {
   if (e.target == canvas) {
     e.preventDefault();
   }
-}, false);
-document.body.addEventListener("touchend", function (e) {
-  if (e.target == canvas) {
-    e.preventDefault();
-  }
-}, false);
-document.body.addEventListener("touchmove", function (e) {
-  if (e.target == canvas) {
-    e.preventDefault();
-  }
-}, false);
+}, {passive: false});
 
+function clearsig() {
+    let rect = canvas.getBoundingClientRect();
+
+    ctx.clearRect(0, 0, rect.width, rect.height);
+}
 // form save management
 function saveSettings() {
         u('.dyntext').each(function(node, i) {
             console.log("Saving ", node.name, "value", node.value);
             localStorage[node.name] = node.value;
         });
-        localStorage['signature'] = canvas.first().toDataURL();
+        localStorage['signature'] = canvas.toDataURL();
 
 }
 
@@ -221,6 +321,7 @@ function loadSettings() {
             node.value = localStorage[node.name];
             updateField(node, theSpan);
         });
+        clearsig();
         img = new Image();
         img.onload = function() {
             ctx.drawImage(this, 0, 0);
@@ -228,6 +329,7 @@ function loadSettings() {
         img.src = localStorage['signature'];
 }
 
+init();
 
         </script>
     </body>
