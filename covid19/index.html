@@ -1,0 +1,180 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Attestation COVID-19 France</title>
+        <meta charset="utf-8">
+        <meta name="description" content="Générateur sécurisé d'attestation COVID-19">
+        <script src="umbrella.min.js"></script>
+        <style>
+        body {
+            font-family: sans-serif;
+        }
+        h1, h3 {
+            text-align: center;
+        }
+        p {
+            line-height: 1.5em;
+        }
+        h3 {
+            font-weight: normal;
+        }
+        span.leftal {
+            display: inline-block;
+            width: 6em;
+            vertical-align: top;
+        }
+        textarea {
+            width: 30em;
+        }
+        div#document {
+            margin: 0 auto;
+            max-width: 21cm;
+        }
+        span.dynamic {
+            font-family: monospace;
+            display: inline-block;
+            line-height: 1.1em;
+        }
+		canvas {
+			border: 1px solid gray;
+			display: inline-block;
+			width: 30em;
+			height: 6em;
+			top: 0px;
+			left: 0px;
+		}
+        .align-right {
+            text-align: right;
+        }
+        </style>
+        <style media="print">
+        input, textarea, button {
+            display: none;
+        }
+        canvas {
+            border: none;
+        }
+        input[type="radio"] {
+            display: inline-block;
+        }
+
+
+        </style>
+    </head>
+    <body>
+    <div id="document">
+        <h1>Attestation de déplacement dérogatoire</h1>
+        <h3>En application de l’article 1er du décret du 16 mars 2020 portant réglementation des déplacements dans le cadre de la lutte contre la propagation du virus Covid-19 :</h3>
+
+
+    <div id="identity">
+    <p>Je soussigné: <br>
+    <span class="leftal">Mme/M.: </span><span class="dynamic" id="name"></span><input type="text" class="dyntext" name="i_name"><br>
+    <span class="leftal">Né(e) le: </span><span class="dynamic" id="dob"></span><input type="date" class="dyntext" name="i_dob"><br>
+    <span class="leftal">Demeurant: </span><span class="dynamic" id="address"></span><textarea class="dyntext" name="i_address"></textarea><br>
+    </p>
+    </div>
+    <div id="legal-boilerplate"><p>certifie que mon déplacement est lié au motif suivant (cocher la case) autorisé par l’article 1er du décret du 16 mars 2020 portant réglementation des déplacements dans le cadre de la lutte contre la propagation du virus Covid-19 :</p></div>
+    <div id="reason-selection">
+     <p><input type="radio" name="reason" value="1"> déplacements entre le domicile et le lieu d’exercice de l’activité professionnelle, lorsqu’ils sont indispensables à l’exercice d’activités ne pouvant être organisées sous forme de télétravail (sur justificatif permanent) ou déplacements professionnels ne pouvant être différés ;</p>
+     <p><input type="radio" name="reason" value="2"> déplacements pour effectuer des achats de première nécessité dans des établissements autorisés (liste sur gouvernement.fr);</p>
+     <p><input type="radio" name="reason" value="3"> déplacements pour motif de santé;</p>
+     <p><input type="radio" name="reason" value="4"> déplacements pour motif familial impérieux, pour l’assistance aux personnes vulnérables ou la garde d’enfants ;</p>
+     <p><input type="radio" name="reason" value="5"> déplacements brefs, à proximité du domicile, liés à l’activité physique individuelle des personnes, à l’exclusion de toute pratique sportive collective, et aux besoins des animaux de compagnie.</p>
+    </div>
+
+    <p>Fait à <span class="dynamic" id="city"></span><input type="text" class="dyntext" name="i_city"> le <span id="date_of_day"></span></p>
+	<p class="align-right"><canvas id="signature"></canvas></p>
+    <div id="buttons"><button onclick="window.print()">Imprimer</button>
+    <button onclick="clearsig()">Recommencer la signature</button>
+    <button onclick="loadSettings()">Charger les valeurs</button>
+    <button onclick="saveSettings()">Sauvegarder les valeurs</button>
+    </div>
+        <script>
+function updateField(el, theSpan) {
+                        el.value = el.value.replace(/\r?\n/g, '<br>');
+                        theSpan.html(el.value);
+
+}
+        u('.dyntext').each(function(node, i) {
+                let spanId = '#' + node.name.replace('i_', '');
+                let theSpan = u(spanId);
+                u(node).on('change', function() {
+                    updateField(this, theSpan)});
+                });
+let dt = new Date()
+
+    u('#date_of_day').html(dt.getDate() + '/' + (dt.getMonth() + 1) + '/' + dt.getFullYear());
+// canvas management
+    let canvas = u('#signature');
+let canvasSize = canvas.size()
+
+    // get canvas 2D context and set him correct size
+    const ctx = canvas.first().getContext('2d');
+    ctx.canvas.width = canvasSize.width;
+    ctx.canvas.height = canvasSize.height;
+    console.log(ctx);
+
+    // last known position
+    const pos = { x: 0, y: 0 };
+
+// new position from mouse event
+function setPosition(e) {
+    pos.x = e.clientX - canvasSize.left;
+    pos.y = e.clientY - canvasSize.top;
+}
+
+
+function draw(e) {
+    // mouse left button must be pressed
+    if (e.buttons !== 1) return;
+
+    ctx.beginPath(); // begin
+
+    ctx.lineWidth = 2;
+    ctx.lineCap = 'butt';
+    ctx.strokeStyle = 'rgba(0, 0, 0, 0,9)';
+
+    ctx.moveTo(pos.x, pos.y); // from
+    setPosition(e);
+    ctx.lineTo(pos.x, pos.y); // to
+
+    ctx.stroke(); // draw it!
+}
+
+function clearsig() {
+    ctx.clearRect(0, 0, canvasSize.width, canvasSize.height);
+}
+canvas.on('mousemove', draw);
+canvas.on('mousedown', setPosition);
+canvas.on('mouseenter', setPosition);
+
+// form save management
+function saveSettings() {
+        u('.dyntext').each(function(node, i) {
+            console.log("Saving ", node.name, "value", node.value);
+            localStorage[node.name] = node.value;
+        });
+        localStorage['signature'] = canvas.first().toDataURL();
+
+}
+
+function loadSettings() {
+        u('.dyntext').each(function(node, i) {
+            let spanId = '#' + node.name.replace('i_', '');
+            let theSpan = u(spanId);
+            console.log("Loading ", node.name, "value", node.value);
+            node.value = localStorage[node.name];
+            updateField(node, theSpan);
+        });
+        img = new Image();
+        img.onload = function() {
+            ctx.drawImage(this, 0, 0);
+        }
+        img.src = localStorage['signature'];
+}
+
+
+        </script>
+    </body>
+</html>
