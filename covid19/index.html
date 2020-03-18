@@ -185,9 +185,6 @@ canvas.on("touchmove", function (e) {
   canvas.dispatchEvent(mouseEvent);
 }, false);
 
-canvas.on('touchmove', draw);
-canvas.on('touchstart', setPosition);
-canvas.on('touchend', setPosition);
 
 // Prevent scrolling when touching the canvas
 document.body.addEventListener("touchstart", function (e) {
