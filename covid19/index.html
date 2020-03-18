@@ -54,7 +54,7 @@
         canvas {
             border: none;
         }
-        input[type="radio"] {
+        input[type="checkbox"] {
             display: inline-block;
         }
 
@@ -76,11 +76,11 @@
     </div>
     <div id="legal-boilerplate"><p>certifie que mon déplacement est lié au motif suivant (cocher la case) autorisé par l’article 1er du décret du 16 mars 2020 portant réglementation des déplacements dans le cadre de la lutte contre la propagation du virus Covid-19 :</p></div>
     <div id="reason-selection">
-     <p><input type="radio" name="reason" value="1"> déplacements entre le domicile et le lieu d’exercice de l’activité professionnelle, lorsqu’ils sont indispensables à l’exercice d’activités ne pouvant être organisées sous forme de télétravail (sur justificatif permanent) ou déplacements professionnels ne pouvant être différés ;</p>
-     <p><input type="radio" name="reason" value="2"> déplacements pour effectuer des achats de première nécessité dans des établissements autorisés (liste sur gouvernement.fr);</p>
-     <p><input type="radio" name="reason" value="3"> déplacements pour motif de santé;</p>
-     <p><input type="radio" name="reason" value="4"> déplacements pour motif familial impérieux, pour l’assistance aux personnes vulnérables ou la garde d’enfants ;</p>
-     <p><input type="radio" name="reason" value="5"> déplacements brefs, à proximité du domicile, liés à l’activité physique individuelle des personnes, à l’exclusion de toute pratique sportive collective, et aux besoins des animaux de compagnie.</p>
+     <p><input type="checkbox" name="reason" value="1"> déplacements entre le domicile et le lieu d’exercice de l’activité professionnelle, lorsqu’ils sont indispensables à l’exercice d’activités ne pouvant être organisées sous forme de télétravail (sur justificatif permanent) ou déplacements professionnels ne pouvant être différés ;</p>
+     <p><input type="checkbox" name="reason" value="2"> déplacements pour effectuer des achats de première nécessité dans des établissements autorisés (liste sur gouvernement.fr);</p>
+     <p><input type="checkbox" name="reason" value="3"> déplacements pour motif de santé;</p>
+     <p><input type="checkbox" name="reason" value="4"> déplacements pour motif familial impérieux, pour l’assistance aux personnes vulnérables ou la garde d’enfants ;</p>
+     <p><input type="checkbox" name="reason" value="5"> déplacements brefs, à proximité du domicile, liés à l’activité physique individuelle des personnes, à l’exclusion de toute pratique sportive collective, et aux besoins des animaux de compagnie.</p>
     </div>
 
     <p>Fait à <span class="dynamic" id="city"></span><input type="text" class="dyntext" name="i_city"> le <span id="date_of_day"></span></p>
@@ -102,6 +102,12 @@ function updateField(el, theSpan) {
                 u(node).on('change', function() {
                     updateField(this, theSpan)});
                 });
+        u('input[type="checkbox"]').each(function(node, i) {
+            u(node).on('change', function() {
+                u('input[type="checkbox"]').filter(':checked').each(function(node, i) { node.checked = false; });
+                this.checked = true;
+            })
+        });
 let dt = new Date()
 
     u('#date_of_day').html(dt.getDate() + '/' + (dt.getMonth() + 1) + '/' + dt.getFullYear());
