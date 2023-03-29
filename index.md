@@ -2,9 +2,13 @@
 title: Matcha's GitHub space
 ---
 
-# This may or may not serve a purpose
+# This page may or may not serve a purpose
 
-Matcha: engineer x musician x writer x alice character
+Matcha: engineer x musician x writer x alice character.
+
+I'm that Staff Engineer who makes weird puns and is socially awkward but will explain things just right. I'm also that nerd fixing your SQL query and pairing with you on incidents because that's cool. Or maybe you know me for the music or because I talked to you about autism, ADHD and queerness at work.
+
+Anyway you're home so relax.
 
 # Useful links
 
