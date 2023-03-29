@@ -1,5 +1,6 @@
-Soral Sampler
-=============
+# Soral Sampler
+
+[<button style="font-size: 1.5rem; padding: 0.5rem; text-align: center; margin: 0 auto; display: block;" onclick=";">Écrabouille le bouton pour lancer le sampler</button>](SoralSampler.html)
 
 Le Soral Sampler était un flash disponible sur http://www.comprendrelencule.com/sampler qui depuis a disparu.
 
